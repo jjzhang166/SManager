@@ -15,7 +15,7 @@ public:
     void addRow(QStringList &);
     void addRows(QVector<QStringList> &);
 
-    QStringList getRow(const rowCondition&);
+    QVector<QStringList> getRow(const rowCondition&);
 
     void editRow(const rowCondition &,const columnPairs &);
 
