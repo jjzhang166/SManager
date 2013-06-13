@@ -100,5 +100,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>addEditDialog</receiver>
+   <slot>saveData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>249</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>151</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>saveData()</slot>
+ </slots>
 </ui>

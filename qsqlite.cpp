@@ -23,6 +23,7 @@ void QSqlite::addRow(QStringList & row){
         queryTmp.append(((i+1)!=cols?",":")"));
     }
     query(queryTmp);
+    qDebug()<<query_.lastError();
 }
 
 void QSqlite::addRows(QVector<QStringList> & svecRows){
@@ -34,26 +35,34 @@ void QSqlite::addRows(QVector<QStringList> & svecRows){
 
 QVector<QStringList> QSqlite::getRow(const rowCondition & rcond){
     QString queryTmp = QString("select * from `%1` where ").arg(tableName_);
-    for(rowCondition::const_iterator iter = rcond.constBegin();
-        iter != rcond.constEnd();++iter){
+    int nCount = 1;
+    for(auto iter = rcond.constBegin();iter != rcond.constEnd();++iter,++nCount){
         queryTmp += QString("%1 = %2").arg(iter.key()).arg(iter.value());
+        queryTmp.append(nCount<rcond.size()?" AND ":" ");
     }
     query(queryTmp);
     getData();
     return svecData;
 }
 
+int QSqlite::getRowNum(){
+    rowCondition rcond;
+    rcond.insert("1","1");
+    getRow(rcond);
+    return svecData.size();
+}
+
 void QSqlite::editRow(const rowCondition & rcond, const columnPairs & cols){
     QString queryTmp = QString("update `%1` set ").arg(tableName_);
-    int nCount = 0;
-    for(columnPairs::const_iterator citer = cols.cbegin();
+    int nCount = 1;
+    for(auto citer = cols.cbegin();
         citer != cols.cend();++citer,++nCount){
         queryTmp += QString(" %1 = %2").arg(citer.key()).arg(citer.value());
         queryTmp.append(nCount<cols.size()?",":" ");
     }
     queryTmp += "where ";
-    nCount = 0;
-    for(rowCondition::const_iterator citer = rcond.cbegin();
+    nCount = 1;
+    for(auto citer = rcond.cbegin();
         citer != rcond.cend();++citer,++nCount){
         queryTmp += QString(" %1 = %2").arg(citer.key()).arg(QSqlite::toString(citer.value()));
         queryTmp.append(nCount<rcond.size()?",":" ");

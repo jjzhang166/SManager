@@ -15,7 +15,9 @@ public:
     void setHeaderName(int,const QString&);
     void setHeaderName(QStringList&);
     void setCols(int cols);
+    int row() const;
     void addRow(QStringList&);
+    QString getItem(int,int col = 0);
     void setColHeight(int height = 20);
     void setColHeight(int row,int height);
     void setNoEdit(bool);
@@ -32,10 +34,21 @@ public:
     void setColumnWidth(int column, int width);
     void removeRow(int row = 0);
     void clear();
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *);
 private:
     int rows,cols;
     int lastColLen;
     QStandardItemModel *model;
+    QMenu *popMenu;
+    QAction * addItemAction;
+    QAction * editItemAction;
+    QAction * delItemAction;
+    QAction * showAction;
+    QAction * countTodayAction;
+    QAction * countAllAction;
+
 };
 
 #endif

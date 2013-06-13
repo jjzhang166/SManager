@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QDateTime>
+#include "qsqlite.h"
 
 namespace Ui {
 class addEditDialog;
@@ -16,15 +17,14 @@ public:
     explicit addEditDialog(QWidget *parent = 0);
     ~addEditDialog();
 
-    void setEdit(int);
+    void setEdit(QSqlite *,int);
+public slots:
+    void saveData();
     
 private:
     Ui::addEditDialog *ui;
     int id;
-    double amount;
-    QString payType;
-    QString note;
-    QDateTime datetime;
+    QSqlite * sqldb;
 };
 
 #endif // ADDEDITDIALOG_H

@@ -6,6 +6,8 @@
 #include <QtCore>
 #include <QDateTime>
 #include <QTimer>
+#include <cstdlib>
+#include <QMessageBox>
 #include "qsqlite.h"
 
 namespace Ui {
@@ -24,6 +26,11 @@ public slots:
     void addNew();
     void edit();
     void delItem();
+    void showAs();
+    void countToday();
+    void countAll();
+    void flushData();
+    void flushData(QSqlite::rowCondition&);
 
 protected:
     void mousePressEvent(QMouseEvent *e);

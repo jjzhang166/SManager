@@ -84,7 +84,7 @@
      <rect>
       <x>105</x>
       <y>387</y>
-      <width>221</width>
+      <width>171</width>
       <height>16</height>
      </rect>
     </property>
@@ -155,6 +155,23 @@ color:#FFF;</string>
     </property>
     <property name="toolTip">
      <string>Delete</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabel">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>387</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-weight:600;
+color:#FFF;</string>
     </property>
     <property name="text">
      <string/>
@@ -236,9 +253,42 @@ color:#FFF;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>qListCtrl</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>edit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>396</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>delItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>222</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addNew()</slot>
   <slot>edit()</slot>
+  <slot>delItem()</slot>
  </slots>
 </ui>

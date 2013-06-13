@@ -16,6 +16,7 @@ public:
     void addRows(QVector<QStringList> &);
 
     QVector<QStringList> getRow(const rowCondition&);
+    int getRowNum();
 
     void editRow(const rowCondition &,const columnPairs &);
 
@@ -28,7 +29,7 @@ public:
     static QString stripSlashes(const QString &);
 
     template<typename T>
-    QString toString(const T& string){
+    static QString toString(const T& string){
         QString str(string);
         return QString("\"%1\"").arg(addSlashes(str));
     }

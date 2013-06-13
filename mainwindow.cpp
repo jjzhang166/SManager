@@ -2,6 +2,7 @@
 #include "addeditdialog.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -29,31 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     sqlite.setTableName("payData");
     sqlite.setColsNum(7);
-    QSqlite::rowCondition rcond;
-    rcond.insert("1","1");
-    QVector<QStringList> db = sqlite.getRow(rcond);
-    for(QVector<QStringList>::iterator iter = db.begin();
-        iter != db.end();++iter){
-        ui->qListCtrl->addRow(*iter);
-    }
+    flushData();
 
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
-//    ui->qListCtrl->addRow(strHeaderName);
     QTimer *timer = new QTimer(this);
     QObject::connect(timer,&QTimer::timeout,[&](){
         ui->CTime_Label->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss ddd"));
@@ -102,18 +80,83 @@ bool MainWindow::eventFilter(QObject * obj, QEvent * e){
     }
 }
 void MainWindow::addNew(){
-    addEditDialog *dlg = new addEditDialog(this);
+    auto dlg = new addEditDialog(this);
     dlg->setWindowTitle(tr("Add New"));
+    dlg->setEdit(&sqlite,-1);
+    ui->statusLabel->setText("Add new...");
     dlg->exec();
+
+    flushData();
     delete dlg;
+    ui->statusLabel->setText("Ready...");
 }
 void MainWindow::edit(){
-    addEditDialog *dlg = new addEditDialog(this);
-    dlg->setWindowTitle(tr("Edit"));
-    dlg->setEdit(0);
-    dlg->exec();
-    delete dlg;
+    QString id = ui->qListCtrl->getItem(ui->qListCtrl->currentIndex().row());
+    if(id != QString("")){
+        auto dlg = new addEditDialog(this);
+        dlg->setWindowTitle(tr("Edit"));
+        dlg->setEdit(&sqlite,id.toInt());
+        ui->statusLabel->setText("Editing...");
+        dlg->exec();
+        flushData();
+        delete dlg;
+    }else{
+        ui->statusLabel->setText("Please select an item...");
+    }
 }
 void MainWindow::delItem(){
+    QString id = ui->qListCtrl->getItem(ui->qListCtrl->currentIndex().row());
+    if(id != QString("") && QMessageBox::warning(this,"Delete Warning",QString("Do you really want to delete item (id=%1) ?").arg(id),QMessageBox::Yes|QMessageBox::No)
+            != QMessageBox::No){
+        ui->statusLabel->setText("Deleting...");
+        QSqlite::rowCondition rcond;
+        rcond.insert("id",id);
+        sqlite.deleteRow(rcond);
+        flushData();
+        ui->statusLabel->setText("Ready...");
+    }else{
+        ui->statusLabel->setText("Please select an item...");
+    }
+}
+void MainWindow::showAs(){
 
+}
+void MainWindow::countToday(){
+    QDate date = QDate::currentDate();
+    QSqlite::rowCondition rcond;
+    rcond.insert("day",QSqlite::toString(date.toString("d")));
+    rcond.insert("month",QSqlite::toString(date.toString("M")));
+    rcond.insert("year",QSqlite::toString(date.toString("yy")));
+    qDebug()<<rcond;
+    flushData(rcond);
+    int rows = ui->qListCtrl->row();
+    double amount = 0;
+    for(int i = 0;i < rows;++i){
+        amount += ui->qListCtrl->getItem(i,1).toDouble();
+    }
+    ui->statusLabel->setText(QString("Amount of today is <font color=\"red\">%1</font>￥").arg(amount));
+}
+void MainWindow::countAll(){
+    flushData();
+    int rows = ui->qListCtrl->row();
+    double amount = 0;
+    for(int i = 0;i < rows;++i){
+        amount += ui->qListCtrl->getItem(i,1).toDouble();
+    }
+    ui->statusLabel->setText(QString("Amount of all is <font color=\"red\">%1</font>￥").arg(amount));
+}
+void MainWindow::flushData(){
+    QSqlite::rowCondition rcond;
+    rcond.insert("1","1");
+    flushData(rcond);
+}
+void MainWindow::flushData(QSqlite::rowCondition& rcond){
+    ui->statusLabel->setText("Refreshing...");
+    auto db = sqlite.getRow(rcond);
+    ui->qListCtrl->clear();
+    for(auto iter = db.begin();
+        iter != db.end();++iter){
+        ui->qListCtrl->addRow(*iter);
+    }
+    ui->statusLabel->setText("Ready...");
 }
