@@ -30,8 +30,5 @@
         <file>res/image/del_btn_hover.png</file>
         <file>res/image/edit_btn.png</file>
         <file>res/image/edit_btn_hover.png</file>
-        <file>res/image/as12.gif</file>
-        <file>res/image/noon.swf</file>
-        <file>res/image/noon.gif</file>
     </qresource>
 </RCC>
