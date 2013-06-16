@@ -1,5 +1,5 @@
 QMainWindow#MainWindow {
-	background-image:url(:/res/image/img4 - Copy.jpg);
+	background-image:url(:/res/image/12.jpg);
 	border-radius:5px;
 	border:1px solid gray;
 }

@@ -31,6 +31,7 @@ public slots:
     void countAll();
     void flushData();
     void flushData(QSqlite::rowCondition&);
+    void count();
 
 protected:
     void mousePressEvent(QMouseEvent *e);

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "addeditdialog.h"
+#include "showasdlg.h"
 #include "ui_mainwindow.h"
 
 
@@ -119,7 +120,9 @@ void MainWindow::delItem(){
     }
 }
 void MainWindow::showAs(){
-
+    auto dlg = new ShowAsDlg(this);
+    dlg->exec();
+    delete dlg;
 }
 void MainWindow::countToday(){
     QDate date = QDate::currentDate();
@@ -129,21 +132,11 @@ void MainWindow::countToday(){
     rcond.insert("year",QSqlite::toString(date.toString("yy")));
     qDebug()<<rcond;
     flushData(rcond);
-    int rows = ui->qListCtrl->row();
-    double amount = 0;
-    for(int i = 0;i < rows;++i){
-        amount += ui->qListCtrl->getItem(i,1).toDouble();
-    }
-    ui->statusLabel->setText(QString("Amount of today is <font color=\"red\">%1</font>￥").arg(amount));
+    count();
 }
 void MainWindow::countAll(){
     flushData();
-    int rows = ui->qListCtrl->row();
-    double amount = 0;
-    for(int i = 0;i < rows;++i){
-        amount += ui->qListCtrl->getItem(i,1).toDouble();
-    }
-    ui->statusLabel->setText(QString("Amount of all is <font color=\"red\">%1</font>￥").arg(amount));
+    count();
 }
 void MainWindow::flushData(){
     QSqlite::rowCondition rcond;
@@ -159,4 +152,12 @@ void MainWindow::flushData(QSqlite::rowCondition& rcond){
         ui->qListCtrl->addRow(*iter);
     }
     ui->statusLabel->setText("Ready...");
+}
+void MainWindow::count(){
+    int rows = ui->qListCtrl->row();
+    double amount = 0;
+    for(int i = 0;i < rows;++i){
+        amount += ui->qListCtrl->getItem(i,1).toDouble();
+    }
+    ui->statusLabel->setText(QString("Amount of all is <font color=\"red\">%1</font>￥").arg(amount));
 }

@@ -18,17 +18,20 @@ SOURCES += main.cpp\
     logindlg.cpp \
     qlistctrl.cpp \
     addeditdialog.cpp \
-    qsqlite.cpp
+    qsqlite.cpp \
+    showasdlg.cpp
 
 HEADERS  += mainwindow.h \
     logindlg.h \
     qlistctrl.h \
     addeditdialog.h \
-    qsqlite.h
+    qsqlite.h \
+    showasdlg.h
 
 FORMS    += mainwindow.ui \
     logindlg.ui \
-    addeditdialog.ui
+    addeditdialog.ui \
+    showasdlg.ui
 
 RESOURCES += \
     res.qrc

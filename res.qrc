@@ -30,5 +30,6 @@
         <file>res/image/del_btn_hover.png</file>
         <file>res/image/edit_btn.png</file>
         <file>res/image/edit_btn_hover.png</file>
+        <file>res/image/12.jpg</file>
     </qresource>
 </RCC>
