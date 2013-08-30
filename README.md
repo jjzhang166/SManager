@@ -1,6 +1,8 @@
 <h2>Payment(基于Qt的个人支出管理系统)</h2>
 程序基于Qt5.0，编译时请确认版本是否适配。也可以自行将响应C++11代码修改。<br />
 
+website: http://gkc.asia/smanager-index
+
 <h3>Next version</h3>
 <h4>v1.2</h4>
 1. 添加远程MYSQL存储功能（需要自行申请可用于远程管理的MYSQL数据库)
