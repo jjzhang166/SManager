@@ -70,8 +70,11 @@ void QSqlite::editRow(const rowCondition & rcond, const columnPairs & cols){
     query(queryTmp);
 }
 
-void QSqlite::deleteRow(const rowCondition &){
-
+void QSqlite::deleteRow(const rowCondition &rcond){
+    QString queryTmp = QString("delete from `%1` where %2 = %3").
+            arg(tableName_).arg(rcond.begin().key()).arg(rcond.begin().value());
+    query(queryTmp);
+    qDebug()<<"Deleting..."<<endl;
 }
 
 void QSqlite::setTableName(const QString & name){
