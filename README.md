@@ -1,14 +1,14 @@
 <h1>SManager 项目主页</h1>
 项目目的是要创建一套完整的个人信息管理系统
 
-项目包含的子项目：
-Payment                                         个人支出管理系统
-KeyManager                                      个人帐号密码管理
-Update                                             SManger项目软件自动更新
-&nbsp;
-项目托管：
+项目包含的子项目：<br />
+Payment                                         个人支出管理系统<br />
+KeyManager                                      个人帐号密码管理<br />
+Update                                             SManger项目软件自动更新<br />
+&nbsp;<br />
+项目托管：<br />
 website: http://gkc.asia/smanager-index
-Payment : <a href="http://git.oschina.net/jakes/smanager">http://git.oschina.net/jakes/SManager</a>    Git@OSC
+Payment : <a href="http://git.oschina.net/jakes/smanager">http://git.oschina.net/jakes/SManager</a>    Git@OSC <br />
 
 目前就这么些，本项目的目的主要是训练技能。最后将创建一个框架，用于集成以上子项目，不过插件的知识现在正在学习，一切都尽在摸索中。
 
