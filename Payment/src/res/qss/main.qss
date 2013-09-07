@@ -1,0 +1,119 @@
+QMainWindow#MainWindow {
+	background-image:url(:/res/image/12.jpg);
+	border-radius:5px;
+	border:1px solid gray;
+}
+QMainWindow#MainWindow[comment="MaxWindow"] {
+	border-image:url(:/res/image/bkg_login.jpg);
+}
+
+QPushButton#smallButton {
+	background-image:url(:/res/image/min.png);
+	border:0px;
+}
+QPushButton#smallButton:hover:enabled{
+	background-image:url(:/res/image/min1.png);
+	border: 0px;
+}
+
+QPushButton#exitButton {
+	background-image:url(:/res/image/close.png);
+	border:0px;
+}
+QPushButton#exitButton:hover:enabled {
+	background-image:url(:/res/image/close1.png);
+	border: 0px;
+}
+QPushButton#exitButton:pressed:enabled {
+	background-image:url(:/res/image/close2.png);
+	border: 0px;
+}
+
+QPushButton#addBtn {
+	background-image:url(:/res/image/add_btn.png);
+	border:0px;
+}
+QPushButton#addBtn:hover:enabled {
+	background-image:url(:/res/image/add_btn_hover.png);
+	border: 0px;
+}
+QPushButton#editBtn {
+	background-image:url(:/res/image/edit_btn.png);
+	border:0px;
+}
+QPushButton#editBtn:hover:enabled {
+	background-image:url(:/res/image/edit_btn_hover.png);
+	border: 0px;
+}
+QPushButton#delBtn {
+	background-image:url(:/res/image/del_btn.png);
+	border:0px;
+}
+QPushButton#delBtn:hover:enabled {
+	background-image:url(:/res/image/del_btn_hover.png);
+	border: 0px;
+}
+
+/*Normal button style*/
+#unlockButton{
+	color:black;
+	border-radius:3px 3px;
+	border:1px solid #668099;
+	background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #FFF, stop:1 #cbdad5);
+}
+#unlockButton:hover {
+	background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #FFF,stop:0.55 #FFF,stop:0.56 #c9c7cc, stop:1 #ceffff);
+}
+#unlockButton:pressed {
+	border:2px groove #668099;
+	background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #c9c7cc, stop:1 #ceffff);
+}
+QPushButton#unlockButton,#unlockButton:hover,#unlockButton:pressed {
+	background-image: url(:/res/image/check_status_normal1.png);
+	background-repeat:none;
+	background-position:left center;
+	padding-left:16px;
+}
+/*LineEdit common style*/
+QLineEdit {
+	border-radius:3px 3px;
+	border:1px groove gray;
+	padding:2px 2px;
+	font-family:'微软雅黑';
+	color:rgb(255,255,255);
+	font-size:13px;
+	color:black;
+}
+QLineEdit:hover {
+	border-color:rgba(52,128,224,50%);	
+}
+QLineEdit:focus {
+	border-color:rgba(52,128,224,100%);	
+}
+
+/*Radio common style*/
+QRadioButton::indicator{
+	width:17px;
+	height:17px;
+}
+QRadioButton::indicator:checked {
+	background-image: url(:/res/image/radiobtn_tick_normal.png);
+	border: 0px;
+}
+QRadioButton::indicator:checked:hover {
+	background-image: url(:/res/image/radiobtn_tick_highlight.png);
+	border: 0px;
+}
+QRadioButton::indicator:unchecked:hover {
+	background-image: url(:/res/image/radiobtn_highlight.png);
+	border: 0px;
+}
+QRadioButton::indicator:unchecked {
+	background-image: url(:/res/image/radiobtn_normal.png);
+	border: 0px;
+}
+/*GroupBox common style*/
+QGroupBox {
+	border-radius:5px 5px;
+	border:1px solid gray;
+}
