@@ -38,11 +38,12 @@ void QListCtrl::setCols(int cols){
 int QListCtrl::row() const{
     return rows;
 }
-void QListCtrl::addRow(QStringList & string){
-    for(int i = string.size();i < cols;++i)
-        string << tr("");
+void QListCtrl::addRow(const QStringList & string){
+    QStringList str{string};
+    for(int i = str.size();i < cols;++i)
+        str << tr("");
     for(int i = 0;i < cols;++i)
-        model->setItem(rows,i,new QStandardItem(tr(string.at(i).toUtf8())));
+        model->setItem(rows,i,new QStandardItem(tr(str.at(i).toUtf8())));
     setColHeight(rows,horizontalHeader()->height());
     rows++;
     if(vScrollBarVisible())

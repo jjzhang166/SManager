@@ -16,7 +16,7 @@ public:
     void setHeaderName(QStringList&);
     void setCols(int cols);
     int row() const;
-    void addRow(QStringList&);
+    void addRow(const QStringList&);
     QString getItem(int,int col = 0);
     void setColHeight(int height = 20);
     void setColHeight(int row,int height);

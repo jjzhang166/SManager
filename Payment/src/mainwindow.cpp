@@ -2,6 +2,7 @@
 #include "addeditdialog.h"
 #include "showasdlg.h"
 #include "ui_mainwindow.h"
+#include <QVectorIterator>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -54,7 +55,6 @@ void MainWindow::mouseMoveEvent(QMouseEvent *e){
 void MainWindow::paintEvent(QPaintEvent*){
     QBitmap bmap(size());
     QPainter p(&bmap);
-    QRect btnRect;
     p.fillRect(rect(),Qt::white);
     p.setBrush(Qt::black);
     p.drawRoundedRect(0,0,width() - 1,height() - 1,5,5);
@@ -146,11 +146,17 @@ void MainWindow::flushData(){
 void MainWindow::flushData(QSqlite::rowCondition& rcond){
     ui->statusLabel->setText("Refreshing...");
     auto db = sqlite.getRow(rcond);
+    QVectorIterator<QStringList> qvIter(db);
+    qvIter.toBack();
     ui->qListCtrl->clear();
-    for(auto iter = db.begin();
-        iter != db.end();++iter){
-        ui->qListCtrl->addRow(*iter);
+    while(qvIter.hasPrevious()){
+        ui->qListCtrl->addRow(qvIter.previous());
     }
+//正向
+//    for(auto iter = db.begin();
+//        iter != db.end();++iter){
+//        ui->qListCtrl->addRow(*iter);
+//    }
     ui->statusLabel->setText("Ready...");
 }
 void MainWindow::count(){
