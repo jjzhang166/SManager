@@ -2,8 +2,7 @@
 #include "ui_showasdlg.h"
 
 ShowAsDlg::ShowAsDlg(QWidget *parent) :
-    QDialog(parent),MW(static_cast<MainWindow*>(parent)),
-    ui(new Ui::ShowAsDlg)
+    QDialog(parent),ui(new Ui::ShowAsDlg),MW(static_cast<MainWindow*>(parent))
 {
     ui->setupUi(this);
     QDate date = QDate::currentDate();

@@ -3,7 +3,7 @@
 #include <QtGui>
 #include <QMenu>
 #include <QAction>
-QListCtrl::QListCtrl(QWidget * parent,int cols):rows(0),cols(cols),model(new QStandardItemModel),QTableView(parent){
+QListCtrl::QListCtrl(QWidget * parent,int cols):rows(0),cols(cols),QTableView(parent),model(new QStandardItemModel){
     model->setColumnCount(cols);
 // --------- Initialize The QListCtrl Style ---------
     setColHeight();

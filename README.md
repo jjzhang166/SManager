@@ -7,8 +7,8 @@ KeyManager                                      个人帐号�
 Update                                             SManger项目软件自动更新<br />
 &nbsp;<br />
 项目托管：<br />
-website: http://gkc.asia/smanager-index
-Payment : <a href="http://git.oschina.net/jakes/smanager">http://git.oschina.net/jakes/SManager</a>    Git@OSC <br />
+website: https://gkc.asia/smanager-index <br />
+Payment : <a href="https://git.oschina.net/jakes/smanager">https://git.oschina.net/jakes/SManager</a>    Git@OSC <br />
 
 目前就这么些，本项目的目的主要是训练技能。最后将创建一个框架，用于集成以上子项目，不过插件的知识现在正在学习，一切都尽在摸索中。
 
@@ -24,7 +24,7 @@ Payment : <a href="http://git.oschina.net/jakes/smanager">http://git.oschina.ne
 <p style="padding-left: 30px;">1. 修复当本地数据库文件data.db不存在时，程序无法自行创建的BUG。</p>
 <p style="padding-left: 30px;">2. 添加删除功能</p>
 
-<h4 style="padding-left: 30px;">Release : Version 1.o</h4>
+<h4 style="padding-left: 30px;">Release : Version 1.0</h4>
 <p style="padding-left: 30px;">1. 实现窗口化，并美化窗口</p>
 <p style="padding-left: 30px;">2. 实现QSqlite类，管理sqlite的操作</p>
 <p style="padding-left: 30px;">3. 完善ListCtrl部件</p>

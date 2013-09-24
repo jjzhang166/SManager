@@ -7,6 +7,8 @@ addEditDialog::addEditDialog(QWidget *parent) :
     ui(new Ui::addEditDialog),id(-1)
 {
     ui->setupUi(this);
+    //setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(windowFlags()|Qt::WindowCloseButtonHint);
     ui->payTypeComboBox->addItems(QStringList()<<tr("Breakfast")<<tr("Lunch")<<tr("Dinner")<<tr("Other"));
     ui->amountEdit->setValidator(new QRegExpValidator(QRegExp("^[\-]?[1-9][0-9]*[\.]?[0-9]*$"),this));
 }

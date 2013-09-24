@@ -1,4 +1,7 @@
-/Payment.pro.user
-
-/src/Payment.pro.user
-/Payment/src/*.user
+.DS_Store
+.gitignore.swp
+Payment/.DS_Store
+Payment/.DS_Store
+Payment/src/*.pro.user
+Payment/src/*.pro.user.*
+Payment/build*/*

@@ -1,7 +1,7 @@
 #include "qsqlite.h"
 
 QSqlite::QSqlite(const QString & path):databasePath(path),hDatabase(QSqlDatabase::addDatabase("QSQLITE")),
-    tableName_("test"),cols(1),query_(hDatabase)
+    tableName_("test"),query_(hDatabase),cols(1)
 {
     hDatabase.setDatabaseName(databasePath);
     if(!hDatabase.open()){
