@@ -1,9 +1,9 @@
-QMainWindow#MainWindow {
+QDialog#MainWindow {
 	background-image:url(:/res/image/12.jpg);
 	border-radius:5px;
 	border:1px solid gray;
 }
-QMainWindow#MainWindow[comment="MaxWindow"] {
+QDialog#MainWindow[comment="MaxWindow"] {
 	border-image:url(:/res/image/bkg_login.jpg);
 }
 
