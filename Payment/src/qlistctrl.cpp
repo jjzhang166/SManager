@@ -39,7 +39,7 @@ int QListCtrl::row() const{
     return rows;
 }
 void QListCtrl::addRow(const QStringList & string){
-    QStringList str{string};
+    QStringList str(string);
     for(int i = str.size();i < cols;++i)
         str << tr("");
     for(int i = 0;i < cols;++i)

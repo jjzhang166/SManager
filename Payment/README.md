@@ -5,8 +5,9 @@ website: http://gkc.asia/smanager-index
 
 <h3>Next version</h3>
 <h4>v1.2</h4>
-1. 添加远程MYSQL存储功能（需要自行申请可用于远程管理的MYSQL数据库)
-2. 添加自动升级功能
+<p style="padding-left: 30px;">1. 添加远程MYSQL存储功能（需要自行申请可用于远程管理的MYSQL数据库，插件)</p>
+<p style="padding-left: 30px;">2. 添加自动升级功能（插件）</p>
+<p style="padding-left: 30px;">3. 初步插件化修改 √（Done）</p>
 
 <h3>What's New</h3>
 <h4>v1.1</h4>

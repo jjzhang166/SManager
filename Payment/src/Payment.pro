@@ -8,27 +8,32 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Payment
-TEMPLATE = app
-
+TARGET = SMPlugin-Main
+TEMPLATE = lib
+DLLDESTDIR = ../SManager-plugins/plugins
 CONFIG += c++11
+INCLUDEPATH += ../../../PluginManager
+
+Release:QMAKE_POST_LINK += upx -9 $(DESTDIR_TARGET)
 
 QMAKE_CXXFLAGS += -std=c++11
 
-SOURCES += main.cpp\
+SOURCES +=\
         mainwindow.cpp \
     logindlg.cpp \
     qlistctrl.cpp \
     addeditdialog.cpp \
     qsqlite.cpp \
-    showasdlg.cpp
+    showasdlg.cpp \
+    pluginmain.cpp
 
 HEADERS  += mainwindow.h \
     logindlg.h \
     qlistctrl.h \
     addeditdialog.h \
     qsqlite.h \
-    showasdlg.h
+    showasdlg.h \
+    pluginmain.h
 
 FORMS    += mainwindow.ui \
     logindlg.ui \

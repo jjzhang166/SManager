@@ -7,7 +7,7 @@
 class QSqlite
 {
 public:
-    explicit QSqlite(const QString & path = {"data.db"});
+    explicit QSqlite(const QString & path = "data.db");
     ~QSqlite();
 
     typedef QMap<QString,QString> rowCondition,columnPairs;

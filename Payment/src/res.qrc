@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/image/bkg11.jpg</file>
         <file>res/image/check_status_normal1.png</file>
         <file>res/image/checkbox_hightlight.png</file>
         <file>res/image/checkbox_normal.png</file>
@@ -25,7 +24,6 @@
         <file>res/image/bkg_login.jpg</file>
         <file>res/image/add_btn.png</file>
         <file>res/image/add_btn_hover.png</file>
-        <file>res/image/img4 - Copy.jpg</file>
         <file>res/image/del_btn.png</file>
         <file>res/image/del_btn_hover.png</file>
         <file>res/image/edit_btn.png</file>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <widget class="QDialog" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,7 +16,15 @@
   <property name="toolTip">
    <string>Add new</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>679</width>
+     <height>402</height>
+    </rect>
+   </property>
    <widget class="QLabel" name="titleLabel">
     <property name="geometry">
      <rect>
@@ -164,9 +172,9 @@ color:#FFF;</string>
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>380</y>
+      <y>387</y>
       <width>191</width>
-      <height>20</height>
+      <height>16</height>
      </rect>
     </property>
     <property name="styleSheet">

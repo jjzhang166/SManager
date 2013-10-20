@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QComboBox>
 #include <QDate>
-#include <mainwindow.h>
+#include "mainwindow.h"
 
 namespace Ui {
 class ShowAsDlg;
